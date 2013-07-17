@@ -28,6 +28,7 @@
 
 <div id="player-buttons">
 	<div id="points-score">
+   <h1 id="special-point"></h1>
 	<h1>Points<h1/><h1 id="points">0-0</h1>
 	<h1>Games</h1><h1 id="games">0-0</h1>
 	<h1>TieBreak</h1><h1 id="tiebreak">0-0</h1>
@@ -54,6 +55,7 @@
    	 		var tiebreak = document.getElementById('tiebreak');
    	 		var sets = document.getElementById('sets');
    	 		var matches = document.getElementById('match');
+            var special = document.getElementById('special-point');
 
    	 		player1.addEventListener('click',function(){		// ads a javascript event listener for var points, so that can had function when click
    	 			points.innerHTML=game.winPoint(p1);
@@ -61,6 +63,7 @@
    	 			games.innerHTML = game.games();				// using innerHTML is changing whatever is inside the points
    	 			matches.innerHTML = game.match();
    	 			tiebreak.innerHTML = game.tiebreak();
+               special.innerHTML=game.specialPoints();
    	 		});	
    	 		player2.addEventListener('click',function(){
    	 			points.innerHTML=game.winPoint(p2);
@@ -68,6 +71,7 @@
    	 			games.innerHTML = game.games();
    	 			matches.innerHTML = game.match();
    	 			tiebreak.innerHTML = game.tiebreak();
+               special.innerHTML=game.specialPoints();
    	 		});	
 
    	 		

@@ -171,14 +171,15 @@ function Game(p1, p2, p3, p4) {
 	}
 
 
-	this.isGamePoint = function(){
+	this.isGamePointP1 = function(){
 		if(this.player1.score >= 3 && (this.player1.score - this.player2.score) >=2)
 			{return true;}
-	
 
-		if(this.player2.score >= 3 && (this.player2.score - this.player1.score) >=2)
+	}
+
+	this.isGamePointP2= function(){
+			if(this.player2.score >= 3 && (this.player2.score - this.player1.score) >=2)
 			{return true;}
-	
 	}
 
 	this.specialPoints = function(){
@@ -188,7 +189,25 @@ function Game(p1, p2, p3, p4) {
 			{return this.setPoint();}
 		else if(this.isBreakPoint())
 			{return "Break Point";}
+		else
+			{return "";}
 	}
+
+	this.setPoint = function(){
+		if(this.player1.games >= 5 && (this.player1.games - this.player2.games >=1) && this.isGamePointP1())
+			{return "Set Point";}
+		else if (this.player1.games === 6 && this.player2.games === 6 && this.player1.tiebreak>=6 && this.player1.tiebreak-this.player2.tiebreak >= 1)
+			{return "Set Point";}
+
+		if(this.player2.games >= 5 && (this.player2.games - this.player1.games >=1) && this.isGamePointP2())
+			{return "Set Point";}
+
+		else if (this.player2.games === 6 && this.player1.games === 6 && this.player2.tiebreak>=6 && this.player2.tiebreak-this.player1.tiebreak >= 1)
+			{return "Set Point";}
+		
+	} 
+
+
 
 	this.isBreakPoint = function(){
 	var server = this.server();
@@ -212,18 +231,7 @@ function Game(p1, p2, p3, p4) {
 			{return "Match Point";}
 	}
 
-	this.setPoint = function(){
-		if(this.player1.games >= 5 && (this.player1.games - this.player2.games >=1) && this.isGamePoint())
-			{return "Set Point";}
-		else if (this.player1.games === 6 && this.player2.games === 6 && this.player1.tiebreak>=6 && this.player1.tiebreak-this.player2.tiebreak >= 1)
-			{return "Set Point";}
 
-		if(this.player2.games >= 5 && (this.player2.games - this.player1.games >=1) && this.isGamePoint())
-			{return "Set Point";}
-		else if (this.player2.games === 6 && this.player1.games === 6 && this.player2.tiebreak>=6 && this.player2.tiebreak-this.player1.tiebreak >= 1)
-			{return "Set Point";}
-		
-	} 
 
 }
 
