@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <script src="http://code.jquery.com/jquery.js"></script>
+   	 <script src="js/bootstrap.min.js"></script>
+   	 <script src="./javascripts/Player.js"></script>
+   	 <script src="./javascripts/Game.js"></script>
+  
+    <link href="style.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<!-- <div id="game-points">
+	<table>
+	<tr>
+		<th>Player 1</th>
+		<th>Player 2</th>
+	</tr>
+	<tr>
+		<td colspan="2">Points go here</td>
+	</tr>
+	</table>
+</div> -->
+
+
+
+<div id="player-buttons">
+	<div id="points-score">
+	<h1>Points<h1/><h1 id="points">0-0</h1>
+	<h1>Games</h1><h1 id="games">0-0</h1>
+	<h1>TieBreak</h1><h1 id="tiebreak">0-0</h1>
+	<h1>Sets</h1><h1 id="sets">0-0</h1>
+	<h1>Match</h1><h1 id="match">0-0</h1>
+	</div>
+<button class="btn btn-success" id="start" type="button">Start</button>
+<button class="btn btn-primary" id ="player1" type="button">Player 1 </button>
+
+<button class="btn btn-info" id ="player2"  type="button">Player 2</button>
+</div>
+
+ 	 <script>
+   	 		var start = document.getElementById('start');
+   	 		start.addEventListener('click',function(){
+   	 			p1 = new Player("female");
+   	 			p2 = new Player("female");
+   	 			game = new Game(p1, p2);
+   	 		});
+   	 		var games= document.getElementById('games');		// setting the game count
+   	 		var points=document.getElementById('points');  // is setting up the HTML id points as an object into var points
+   	 		var player1= document.getElementById('player1');	//is setting up the HTML id player1 as an object into var player1
+   	 		var player2= document.getElementById('player2');
+   	 		var tiebreak = document.getElementById('tiebreak');
+   	 		var sets = document.getElementById('sets');
+   	 		var matches = document.getElementById('match');
+
+   	 		player1.addEventListener('click',function(){		// ads a javascript event listener for var points, so that can had function when click
+   	 			points.innerHTML=game.winPoint(p1);
+   	 			sets.innerHTML = game.sets();
+   	 			games.innerHTML = game.games();				// using innerHTML is changing whatever is inside the points
+   	 			matches.innerHTML = game.match();
+   	 			tiebreak.innerHTML = game.tiebreak();
+   	 		});	
+   	 		player2.addEventListener('click',function(){
+   	 			points.innerHTML=game.winPoint(p2);
+   	 			sets.innerHTML = game.sets();
+   	 			games.innerHTML = game.games();
+   	 			matches.innerHTML = game.match();
+   	 			tiebreak.innerHTML = game.tiebreak();
+   	 		});	
+
+   	 		
+
+
+
+   	 </script>
+</body>
+</html>
