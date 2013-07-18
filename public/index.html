@@ -12,34 +12,44 @@
 </head>
 <body>
 
-<!-- <div id="game-points">
-	<table>
-	<tr>
-		<th>Player 1</th>
-		<th>Player 2</th>
-	</tr>
-	<tr>
-		<td colspan="2">Points go here</td>
-	</tr>
-	</table>
-</div> -->
 
 
+<table id="score-table">
+   <tr>
+      <td>Match</td>
+      <td id="match">0-0</td>
+   </tr>
+   <tr>
+      <td>Sets</td>
+      <td id="sets">0-0</td>
+   </tr>
+    <tr>
+      <td>TieBreak</td>
+      <td id="tiebreak">0-0</td>
+   </tr>
+    <tr>
+      <td>Games</td>
+      <td id="games">0-0</td>
+   </tr>
+    <tr>
+      <td>Points</td>
+      <td id="points">0-0</td>
+   </tr>   
+
+
+
+</table>
 
 <div id="player-buttons">
-	<div id="points-score">
-   <h1 id="special-point"></h1>
-	<h1>Points<h1/><h1 id="points">0-0</h1>
-	<h1>Games</h1><h1 id="games">0-0</h1>
-	<h1>TieBreak</h1><h1 id="tiebreak">0-0</h1>
-	<h1>Sets</h1><h1 id="sets">0-0</h1>
-	<h1>Match</h1><h1 id="match">0-0</h1>
-	</div>
-<button class="btn btn-success" id="start" type="button">Start</button>
-<button class="btn btn-primary" id ="player1" type="button">Player 1 </button>
 
-<button class="btn btn-info" id ="player2"  type="button">Player 2</button>
+<button class="btn btn-success" id="start" type="button">Start</button>
+<button class="btn player-btn btn-primary" id ="player1" type="button">Player 1 Wins a Point </button>
+<button class="btn player-btn btn-info" id ="player2"  type="button">Player 2 Wins a Point</button>
 </div>
+
+
+
+
 
  	 <script>
    	 		var start = document.getElementById('start');
@@ -71,7 +81,7 @@
    	 			games.innerHTML = game.games();
    	 			matches.innerHTML = game.match();
    	 			tiebreak.innerHTML = game.tiebreak();
-               special.innerHTML=game.specialPoints();
+               special.innerHTML = game.specialPoints();
    	 		});	
 
    	 		

@@ -1,28 +1,45 @@
 #player-buttons{
-	margin-top: 250px;
-	margin-left: 450px;
+	margin: auto;
+
 	text-align: center;
-	width: 500px;
+	width: 900px;
 }
 
-#player-buttons button{
-	margin-left: 100px;
+#player-buttons{
+	margin: 0 auto;
+	width: 1200px;
+
 }
 
-/*#game-points table, tr, th{
+td{
 	border: 1px solid black;
+	width: 20px;
+	text-align: center;
+	width: 200px !important;
 }
 
-#game-points{
-
-	margin-left: 500px;
-	margin-top: 50px;
-}*/
-
-#points-score{
+#start{
+	display: block;
+	margin: auto;
+	margin-top: 100px;
 	margin-bottom: 100px;
-	margin-left: 100px;
+	width: 200px;
+	height: 50px;
 }
+
+.player-btn{
+	margin: 0px 50px;
+	width: 250px;
+}
+
+
+#score-table{
+	width: 300px;
+	background-color: #eee;
+	margin: 0 auto;
+	margin-top: 300px;
+}
+
 
 
 

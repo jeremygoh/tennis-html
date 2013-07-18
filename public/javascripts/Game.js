@@ -172,14 +172,18 @@ function Game(p1, p2, p3, p4) {
 
 
 	this.isGamePointP1 = function(){
-		if(this.player1.score >= 3 && (this.player1.score - this.player2.score) >=2)
+		if(this.player1.score >= 3 && (this.player1.score - this.player2.score) >=1)
 			{return true;}
+		else
+			{return false;}
 
 	}
 
 	this.isGamePointP2= function(){
-			if(this.player2.score >= 3 && (this.player2.score - this.player1.score) >=2)
+			if(this.player2.score >= 3 && (this.player2.score - this.player1.score) >=1)
 			{return true;}
+			else
+				{return false;}
 	}
 
 	this.specialPoints = function(){
@@ -187,10 +191,10 @@ function Game(p1, p2, p3, p4) {
 			{return this.matchPoint();}
 		else if(this.setPoint())
 			{return this.setPoint();}
-		else if(this.isBreakPoint())
-			{return "Break Point";}
+		// else if(this.isBreakPoint())
+		// 	{return "Break Point";}
 		else
-			{return "";}
+			{return "NOTHING";}
 	}
 
 	this.setPoint = function(){
@@ -199,12 +203,11 @@ function Game(p1, p2, p3, p4) {
 		else if (this.player1.games === 6 && this.player2.games === 6 && this.player1.tiebreak>=6 && this.player1.tiebreak-this.player2.tiebreak >= 1)
 			{return "Set Point";}
 
-		if(this.player2.games >= 5 && (this.player2.games - this.player1.games >=1) && this.isGamePointP2())
+		else if(this.player2.games >= 5 && (this.player2.games - this.player1.games >=1) && this.isGamePointP2())
 			{return "Set Point";}
 
 		else if (this.player2.games === 6 && this.player1.games === 6 && this.player2.tiebreak>=6 && this.player2.tiebreak-this.player1.tiebreak >= 1)
 			{return "Set Point";}
-		
 	} 
 
 
